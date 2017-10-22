@@ -1,0 +1,24 @@
+<div class="user-data" *ngIf="auth.isAuthenticated()">
+  <div *ngIf="user">
+    <img src="{{ user.pic }}" alt="">
+    <h1>{{ user.name }}</h1>
+  </div>
+</div>
+<div class="user-auth">
+  <button
+    style="margin-top: 10em; font-size: 30px; padding: 1em 3em;"
+    class="btn btn-primary btn-margin"
+    *ngIf="!auth.isAuthenticated()"
+    (click)="auth.login()">
+      Log In
+  </button>
+
+  <button
+    style="margin-top: 5em;"
+    class="btn btn-primary btn-margin"
+    *ngIf="auth.isAuthenticated()"
+    (click)="auth.logout()">
+      Log Out
+  </button>
+
+</div>

@@ -1,0 +1,80 @@
+<div class="container-fluid">
+
+  <div>
+
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'kryptos']">
+          <img src="assets/images/dock/kry-grey.png" alt="">
+          <span class="event-name">Kryptos</span>
+          <span class="rank-text">Rank</span>
+          <span class="rank-value" *ngIf="!myrank">N/A</span>
+          <span class="rank-value" *ngIf="myrank">{{ myrank.krytosrank }}</span>
+        </a>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-4">
+        <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'hashinclude']">
+          <img src="assets/images/dock/hash2-grey.png" alt="">
+          <span class="event-name">#include</span>
+          <span class="rank-text">Rank</span>
+          <span class="rank-value" *ngIf="!myrank">N/A</span>
+          <span class="rank-value" *ngIf="myrank">{{ myrank.hirank }}</span>
+        </a>
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'dalalbull']">
+          <img src="assets/images/dock/bull5-grey.png" alt="">
+          <span class="event-name">Dalalbull</span>
+          <span class="rank-text">Rank</span>
+          <span class="rank-value" *ngIf="!myrank">N/A</span>
+          <span class="rank-value" *ngIf="myrank">{{ myrank.dbrank }}</span>
+        </a>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-4">
+        <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'echo']">
+          <img src="assets/images/dock/ech2-grey.png" alt="">
+          <span class="event-name">Echo</span>
+          <span class="rank-text">Rank</span>
+          <span class="rank-value" *ngIf="!myrank">N/A</span>
+          <span class="rank-value" *ngIf="myrank">{{ myrank.echorank }}</span>
+        </a>
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 visible-lg"></div>
+      <div class="col-lg-4">
+        <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'convolution']">
+          <img src="assets/images/dock/nn5-grey.png" alt="">
+          <span class="event-name">Convolution</span>
+          <span class="rank-text">Rank</span>
+          <span class="rank-value" *ngIf="!myrank">N/A</span>
+          <span class="rank-value" *ngIf="myrank">{{ myrank.convrank }}</span>
+        </a>
+      </div>
+      <div class="col-lg-1">
+
+      </div>
+      <!-- <div class="col-lg-4 inactive-game">
+        <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'flummox']">
+          <img src="assets/images/dock/flux-grey.png" alt="">
+          <span class="event-name">Flummox</span>
+          <span class="rank-text">Rank</span>
+          <span class="rank-value">N/A</span>
+        </a>
+      </div> -->
+      <div class="col-lg-1"></div>
+    </div>
+
+  </div>
+
+</div>

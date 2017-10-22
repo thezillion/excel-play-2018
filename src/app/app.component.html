@@ -1,0 +1,23 @@
+<div class="mobile-nav">
+  <img src="assets/images/logo.png" alt="" class="explay-logo" [routerLink]="''" />
+  <img src="assets/images/user.png" alt="" class="user-icon" [routerLink]="'/signin'">
+</div>
+<div class="main-content" [@contentState]="contentState">
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+</div>
+<div class="dock-container" [@dockState]="dockState">
+  <app-dock></app-dock>
+</div>
+<nav [@appState]="appState">
+  <a href="http://excelmec.org" target="_blank"><img src="assets/images/excel_logo.png" [@exlogoState]="exlogoState" alt="" class="excel-logo"></a>
+  <h1 [routerLink]="''">
+    <!-- <span [@brandState]="brandState">PLAY</span> -->
+    <img src="assets/images/logo.png" alt="" [@brandState]="brandState" class="explay-logo" />
+  </h1>
+  <img src="assets/images/user.png" alt="" class="user-icon" [routerLink]="'/signin'">
+  <div class="user-count" *ngIf="userCount" [@exlogoState]="exlogoState">
+    <span class="active"></span>
+    <b>{{ userCount }}</b>
+    <span> users active</span>
+  </div>
+</nav>

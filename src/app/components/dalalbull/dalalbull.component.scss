@@ -1,0 +1,13 @@
+* {
+  animation: 500ms fade-in 1;
+}
+
+body {
+  overflow: hidden;
+}
+
+.main-content {
+  .top-banner {
+    border-bottom: none !important;
+  }
+}
