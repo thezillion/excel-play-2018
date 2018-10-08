@@ -7,11 +7,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico",
-        "service-worker.js"
-      ],
+      "assets": ["assets", "favicon.ico", "service-worker.js"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -25,7 +21,7 @@
         "styles.css"
       ],
       "scripts": [
-        "bower_components/chart.js/dist/Chart.bundle.min.js",
+        "bower_components/chart.js/src/chart.js",
         "../node_modules/ace-builds/src-min/ace.js",
         "../node_modules/ace-builds/src-min/theme-chrome.js",
         "../node_modules/ace-builds/src-min/mode-sh.js"
