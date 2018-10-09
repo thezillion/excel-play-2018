@@ -2,7 +2,7 @@ import { Http, Headers } from '@angular/http';
 
 import { Router } from '@angular/router';
 
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 import { ApiRoot } from '../classes/api-root';
 
