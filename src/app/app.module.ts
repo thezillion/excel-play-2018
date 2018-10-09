@@ -28,7 +28,7 @@ import { EchoService } from './services/echo.service';
 import { ConvolutionService } from './services/convolution.service';
 import { DalalbullService } from './services/dalalbull.service';
 
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { KryptosPlayComponent } from './components/kryptos/kryptos-play/kryptos-play.component';
 import { KryptosRanklistComponent } from './components/kryptos/kryptos-ranklist/kryptos-ranklist.component';
 import { KryptosRulesComponent } from './components/kryptos/kryptos-rules/kryptos-rules.component';
@@ -55,7 +55,6 @@ import { DalalbullRulesComponent } from './components/dalalbull/dalalbull-rules/
 import { DalalbullRanklistComponent } from './components/dalalbull/dalalbull-ranklist/dalalbull-ranklist.component';
 import { DalalbullStockComponent } from './components/dalalbull/dalalbull-stock/dalalbull-stock.component';
 import { DalalbullHistoryComponent } from './components/dalalbull/dalalbull-history/dalalbull-history.component';
-import { DalalbullFakeComponent } from './components/dalalbull-fake/dalalbull-fake.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -134,7 +133,6 @@ const appRoutes: Routes = [
     DalalbullRanklistComponent,
     DalalbullStockComponent,
     DalalbullHistoryComponent,
-    DalalbullFakeComponent
   ],
   imports: [
     BrowserModule,
