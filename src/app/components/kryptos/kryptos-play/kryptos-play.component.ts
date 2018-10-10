@@ -28,7 +28,7 @@ export class KryptosPlayComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated()) {
+    if (!this.auth.isAuthenticated()) {
       this.showSuccess = false;
       this.loadUserLevel();
       this.loadUserRank();
