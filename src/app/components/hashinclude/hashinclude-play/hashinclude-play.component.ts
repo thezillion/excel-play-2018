@@ -64,7 +64,7 @@ export class HashincludePlayComponent implements OnInit {
         var x = res;
       });
 
-    if (this.auth.isAuthenticated()) {
+    if (!this.auth.isAuthenticated()) {
       this.route.params
         .subscribe((params: Params) => {
           if (params['question_id']) {

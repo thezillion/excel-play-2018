@@ -41,7 +41,7 @@ export class EchoPlayComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.newCommand = "";
-    if (this.auth.isAuthenticated()) {
+    if (!this.auth.isAuthenticated()) {
       this.echoService.addEchoUser()
         .subscribe(res => {
           this.level = res;
