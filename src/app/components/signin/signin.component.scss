@@ -26,9 +26,10 @@
 
 .user-auth {
   .btn {
-    background-color: #be0012;
-    border: 3px solid #be0012;
+    background-color: #0da085;
+    border: 3px solid #0da085;
     color: white;
+    border-radius: .3em;
     box-shadow: 0 5px 8px rgba(23, 19, 19, 0.6);
 
     @media (max-width: 700px) {
@@ -37,8 +38,8 @@
     }
   }
   .btn:hover{
-    background-color: #960210;
-    border: 3px solid #960210;
+    background-color: #00705c;
+    border: 3px solid #00705c;
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.9);
 
   }

@@ -89,10 +89,10 @@ const appRoutes: Routes = [
     ] },
     { path: 'flummox', component: FlummoxComponent },
     { path: 'convolution', component: ConvolutionComponent , children:[
-      { path: '',component: ConvolutionPlayComponent },
-      { path: 'ranklist',component: ConvolutionRanklistComponent},
-      { path: 'rules',component: ConvolutionRulesComponent},
-      { path: 'submit',component: ConvolutionSubmitComponent},
+      { path: '', component: ConvolutionPlayComponent },
+      { path: 'ranklist', component: ConvolutionRanklistComponent},
+      { path: 'rules', component: ConvolutionRulesComponent},
+      { path: 'submit' , component: ConvolutionSubmitComponent},
     ] }
   ] },
   { path: 'about', component: AboutComponent }

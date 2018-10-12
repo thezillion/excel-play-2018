@@ -32,7 +32,7 @@
         h1 {
           width: 100%;
           display: block;
-          color: #ca543c;
+          color: #1b9c89;
           font-weight: bold;
           font-size: 20px;
           text-align: center;
@@ -92,7 +92,7 @@
             // height: 20px;
             position: relative;
             .filename {
-              color: #ca543c;
+              color: #1b9c89;
               display: block;
               float: left;
             }
@@ -106,7 +106,7 @@
               display: block;
               width: 16px;
               height: 16px;
-              color: #bc3428;
+              color: #1b9c89;
               font-size: 20px;
               position: absolute;
               right: 0;
@@ -135,7 +135,7 @@
               top: 0;
               left: 0;
               height: 6px;
-              background: #ca543c;
+              background: #1b9c89;
 
               &.green {
                 background: #93E777;
