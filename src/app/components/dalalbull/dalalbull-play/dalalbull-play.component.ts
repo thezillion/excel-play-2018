@@ -119,7 +119,7 @@ export class DalalbullPlayComponent implements OnInit {
 
   ngOnInit() {
 
-    if (!this.auth.isAuthenticated()) {
+    if (this.auth.isAuthenticated()) {
       this.dalalbullService.addDBUser()
         .subscribe(res => {
           this.getUserPortfolio();

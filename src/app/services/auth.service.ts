@@ -14,11 +14,11 @@ import { ProgressiveLoader } from '../classes/progressive-loader';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: 'client-id',
-    domain: 'domain.auth0.com',
+    clientID: 'wZc8YJOwW3VhA71bdzLz2psxvp30EUNY',
+    domain: 'excelplay2k18.auth0.com',
     responseType: 'token id_token',
-    audience: 'https://domain.auth0.com/userinfo',
-    redirectUri: 'http://'+window.location.hostname+(window.location.port?(':'+window.location.port):'')+'/callback',
+    audience: 'https://excelplay2k18.auth0.com/userinfo',
+    redirectUri: 'http://' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '') + '/callback',
     scope: 'openid profile email offline_access'
   });
 
@@ -30,11 +30,11 @@ export class AuthService {
     private http: Http,
     private cookieService: CookieService
   ) {
-    let csrftoken = this.cookieService.get('csrftoken');
+    const csrftoken = this.cookieService.get('csrftoken');
     if (!csrftoken) {
-      var loader = new ProgressiveLoader();
+      const loader = new ProgressiveLoader();
       loader.placeLoader('Auth_const');
-      this.http.get(ApiRoot()+'/testCache', { withCredentials: true })
+      this.http.get(ApiRoot() + '/testCache', { withCredentials: true })
         .map(res => res.json())
         .subscribe(res => {
           loader.removeLoader();
@@ -50,6 +50,7 @@ export class AuthService {
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
+        console.log(authResult);
         window.location.hash = '';
         // this.http.get(ApiRoot()+'/testCache')
         //   .subscribe(res => {
@@ -59,7 +60,8 @@ export class AuthService {
           });
           // });
       } else if (err) {
-        this.router.navigate(['/signin']);
+        // this.router.navigate(['/signin']);
+        console.log(err);
       }
     });
   }
@@ -70,14 +72,14 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
-    let body = new FormData();
-    let csrftoken = this.cookieService.get('csrftoken');
+    const body = new FormData();
+    const csrftoken = this.cookieService.get('csrftoken');
     if (csrftoken) {
       body.append('access_token', authResult.accessToken);
       body.append('csrfmiddlewaretoken', csrftoken);
-      var loader = new ProgressiveLoader();
+      const loader = new ProgressiveLoader();
       loader.placeLoader('Auth_ss');
-      return this.http.post(ApiRoot()+'/sign_in/', body, { withCredentials: true })
+      return this.http.post(ApiRoot() + '/sign_in/', body, { withCredentials: true })
         .map(res => {
           loader.removeLoader();
           return res.json();
@@ -90,9 +92,9 @@ export class AuthService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
-    var loader = new ProgressiveLoader();
+    const loader = new ProgressiveLoader();
     loader.placeLoader('Auth_lgt');
-    return this.http.get(ApiRoot()+'/signout/', { withCredentials: true })
+    return this.http.get(ApiRoot() + '/signout/', { withCredentials: true })
       .map(res => res.json())
       .subscribe(res => {
         loader.removeLoader();
@@ -107,13 +109,13 @@ export class AuthService {
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     const access_token = localStorage.getItem('access_token');
-    return (access_token)&&(new Date().getTime() < expiresAt);
+    return (access_token) && (new Date().getTime() < expiresAt);
   }
 
   public pullUserCount() {
-    var loader = new ProgressiveLoader();
+    const loader = new ProgressiveLoader();
     loader.placeLoader('Auth_puc');
-    return this.http.get(ApiRoot()+'/getUserCount', { withCredentials: true })
+    return this.http.get(ApiRoot() + '/getUserCount', { withCredentials: true })
       .map(res => {
         loader.removeLoader();
         return res.json();
