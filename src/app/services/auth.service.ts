@@ -14,12 +14,12 @@ import { ProgressiveLoader } from '../classes/progressive-loader';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: 'wZc8YJOwW3VhA71bdzLz2psxvp30EUNY',
-    domain: 'excelplay2k18.auth0.com',
+    clientID: 'GuilcIQmL08rvCGrIoKXx4AdnvMNod0i',
+    domain: 'excelplay2018.auth0.com',
     responseType: 'token id_token',
-    audience: 'https://excelplay2k18.auth0.com/userinfo',
+    // audience: 'https://excelplay2k18.auth0.com/userinfo',
     redirectUri: 'http://' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '') + '/callback',
-    scope: 'openid profile email offline_access'
+    scope: 'openid profile email'
   });
 
   userCount: number;
@@ -60,8 +60,8 @@ export class AuthService {
           });
           // });
       } else if (err) {
-        // this.router.navigate(['/signin']);
         console.log(err);
+        // this.router.navigate(['/signin']);
       }
     });
   }
@@ -79,9 +79,10 @@ export class AuthService {
       body.append('csrfmiddlewaretoken', csrftoken);
       const loader = new ProgressiveLoader();
       loader.placeLoader('Auth_ss');
-      return this.http.post(ApiRoot() + '/sign_in/', body, { withCredentials: true })
+      return this.http.post(ApiRoot() + '/auth/signin/', body, { withCredentials: true })
         .map(res => {
           loader.removeLoader();
+          console.log(res.json());
           return res.json();
         });
     }
@@ -101,7 +102,7 @@ export class AuthService {
         this.router.navigate(['/signin']);
       });
     // Go back to the home route
-    //this.router.navigate(['/signin']);
+    // this.router.navigate(['/signin']);
   }
 
   public isAuthenticated(): boolean {

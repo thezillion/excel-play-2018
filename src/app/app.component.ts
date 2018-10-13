@@ -84,7 +84,6 @@ export class AppComponent {
     private router: Router,
     public auth: AuthService
   ) {
-    auth.handleAuthentication();
     this.appState = 'active';
     this.contentState = 'active';
     this.dockState = 'inactive';

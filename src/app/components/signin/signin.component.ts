@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
       const headers = new Headers();
       const access_token = localStorage.getItem('access_token');
       headers.append('Authorization', 'Bearer ' + access_token);
-      this.http.get('https://excelplay2k18.auth0.com/userinfo', { headers })
+      this.http.get('https://excelplay2018.auth0.com/userinfo', { headers })
         .subscribe(res => {
           const x = res.json();
           this.user.name = x.name;
