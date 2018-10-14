@@ -28,19 +28,21 @@ export class AuthService {
   constructor(
     public router: Router,
     private http: Http,
-    private cookieService: CookieService
+    // private cookieService: CookieService
   ) {
-    const csrftoken = this.cookieService.get('csrftoken');
-    if (!csrftoken) {
+    // const csrftoken = this.cookieService.get('csrftoken');
+    // if (!csrftoken) {
       const loader = new ProgressiveLoader();
       loader.placeLoader('Auth_const');
-      this.http.get(ApiRoot() + '/testCache', { withCredentials: true })
+      this.http.get(ApiRoot() + '/auth/token', { withCredentials: true })
         .map(res => res.json())
         .subscribe(res => {
           loader.removeLoader();
-          window.location.reload(true);
+          console.log(res);
+          // console.log(this.cookieService.get('csrftoken'));
+          // window.location.reload(true);
         });
-    }
+    // }
   }
 
   public login(): void {
@@ -60,8 +62,7 @@ export class AuthService {
           });
           // });
       } else if (err) {
-        console.log(err);
-        // this.router.navigate(['/signin']);
+        this.router.navigate(['/signin']);
       }
     });
   }
@@ -73,19 +74,19 @@ export class AuthService {
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
     const body = new FormData();
-    const csrftoken = this.cookieService.get('csrftoken');
-    if (csrftoken) {
-      body.append('access_token', authResult.accessToken);
-      body.append('csrfmiddlewaretoken', csrftoken);
-      const loader = new ProgressiveLoader();
-      loader.placeLoader('Auth_ss');
-      return this.http.post(ApiRoot() + '/auth/signin/', body, { withCredentials: true })
-        .map(res => {
-          loader.removeLoader();
-          console.log(res.json());
-          return res.json();
-        });
-    }
+    // const csrftoken = this.cookieService.get('csrftoken');
+    // if (csrftoken) {
+    body.append('access_token', authResult.accessToken);
+    // body.append('csrfmiddlewaretoken', csrftoken);
+    const loader = new ProgressiveLoader();
+    loader.placeLoader('Auth_ss');
+    return this.http.post(ApiRoot() + '/auth/signin', body, { withCredentials: true })
+      .map(res => {
+        loader.removeLoader();
+        console.log(res.json());
+        return res.json();
+      });
+    // }
   }
 
   public logout() {
