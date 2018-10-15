@@ -28,7 +28,7 @@ export class HashincludePlayComponent implements OnInit {
   myrank = null;
   mysub;
   total_submissions;
-  showFileSizeError: boolean = false;
+  showFileSizeError = false;
   submitURL: string = ApiRoot()+'/hashinclude/submitanswer';
   lang: string = "c++";
   langs_allowed_ids = ["c", "c++", "python2", "python3", "java"];
