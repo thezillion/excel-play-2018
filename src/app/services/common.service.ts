@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Service } from '../classes/service';
 
 import { Router } from '@angular/router';
-import { Http, Headers } from '@angular/http';
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { ApiRoot } from '../classes/api-root';
 import { AuthService } from './auth.service';
 
@@ -13,11 +13,11 @@ export class CommonService extends Service {
 
   constructor(
     protected router: Router,
-    protected http: Http,
-    protected cookieService: CookieService,
+    protected http: HttpClient,
+    // protected cookieService: CookieService,
     protected auth: AuthService
   ) {
-    super(router, http, cookieService, auth);
+    super(router, http, auth);
   }
 
   pullMyRanks() {

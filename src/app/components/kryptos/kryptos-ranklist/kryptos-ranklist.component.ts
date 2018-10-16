@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { KryptosService } from '../../../services/kryptos.service';
-import { Level } from '../../../classes/level';
+import { tap } from 'rxjs/operators';
+
+import { KryptosService } from 'src/app/services/kryptos.service';
+import { Level } from 'src/app/classes/level';
 
 // import { $WebSocket } from 'angular2-websocket/angular2-websocket';
 //
@@ -39,9 +41,9 @@ export class KryptosRanklistComponent implements OnInit {
 
   loadRanklist() {
     return this.kryptosService.pullRanklist()
-      .subscribe(response => {
-        this.ranklist = response.ranklist;
-      });
+      .pipe(tap(response => {
+        this.ranklist = response["ranklist"];
+      }));
 
     // var ws = new $WebSocket('ws://localhost:8000/leaderboard/kryptos');
     // ws.send(event);

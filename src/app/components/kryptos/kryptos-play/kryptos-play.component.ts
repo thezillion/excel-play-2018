@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {CookieService} from 'angular2-cookie/core';
+// import {CookieService} from 'angular2-cookie/core';
 
-import { Level } from '../../../classes/level';
-import { KryptosService } from '../../../services/kryptos.service';
+import { Level } from 'src/app/classes/level';
+import { KryptosService } from 'src/app/services/kryptos.service';
 
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-kryptos-play',
@@ -14,7 +14,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class KryptosPlayComponent implements OnInit {
 
-  level: Level;
+  level: any;
   myrank;
   answer: string;
   showError: boolean = false;
@@ -23,7 +23,7 @@ export class KryptosPlayComponent implements OnInit {
   constructor(
     private router: Router,
     private kryptosService: KryptosService,
-    private cookieService: CookieService,
+    // private cookieService: CookieService,
     private auth: AuthService
   ) { }
 
@@ -56,7 +56,7 @@ export class KryptosPlayComponent implements OnInit {
     if (this.answer) {
       this.kryptosService.submitAnswer(this.answer.toLowerCase())
         .subscribe(res => {
-          if (res.valid) {
+          if (res.hasOwnProperty("valid")) {
             this.answer = "";
             this.showSuccess = true;
             setTimeout(() => {

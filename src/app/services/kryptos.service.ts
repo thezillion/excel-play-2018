@@ -1,11 +1,9 @@
 import { Router } from '@angular/router';
 
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { CookieService } from "angular2-cookie/services/cookies.service";
-
-import { ApiRoot } from '../classes/api-root';
+// import { CookieService } from "angular2-cookie/services/cookies.service";
 
 import { AuthService } from './auth.service';
 
@@ -13,18 +11,16 @@ import { ProgressiveLoader } from '../classes/progressive-loader';
 
 import { Service } from '../classes/service';
 
-import 'rxjs/add/operator/map';
-
 @Injectable()
 export class KryptosService extends Service {
 
   constructor(
     protected router: Router,
-    protected http: Http,
-    protected cookieService: CookieService,
+    protected http: HttpClient,
+    // protected cookieService: CookieService,
     protected auth: AuthService
   ) {
-    super(router, http, cookieService, auth);
+    super(router, http, auth);
   }
 
   pullUserLevel() {
@@ -38,7 +34,7 @@ export class KryptosService extends Service {
   submitAnswer(answer) {
     let body = new FormData();
     body.append('answer', answer);
-    body.append('csrfmiddlewaretoken', this.cookieService.get('csrftoken'));
+    // body.append('csrfmiddlewaretoken', this.cookieService.get('csrftoken'));
 
     return this.makePOSTAPICall('/kryptos/submitanswer', body);
   }

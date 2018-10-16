@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  isAuth: boolean = true;
+  isAuth = true;
   user = {
     name: null,
     pic: null
@@ -23,15 +23,15 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
     // this.auth.
-    if (localStorage.getItem("access_token")) {
+    if (localStorage.getItem('access_token')) {
       this.isAuth = true;
 
-      var headers = new Headers();
-      var access_token = localStorage.getItem("access_token");
-      headers.append('Authorization', 'Bearer '+access_token);
-      this.http.get('https://excelplay2k17.auth0.com/userinfo', { headers })
+      const headers = new Headers();
+      const access_token = localStorage.getItem('access_token');
+      headers.append('Authorization', 'Bearer ' + access_token);
+      this.http.get('https://excelplay2018.auth0.com/userinfo', { headers })
         .subscribe(res => {
-          var x = res.json();
+          const x = res.json();
           this.user.name = x.name;
           this.user.pic = x.picture;
         });

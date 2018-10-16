@@ -1,10 +1,10 @@
 export function ApiRoot() {
-  return "http://play.excelmec.org/api";
+  return 'http://35.229.61.245';
 }
 export function ApiRootHostname() {
-  return "play.excelmec.org/api";
+  return '35.229.61.245';
 }
 
 export function ApiRootHostname_nodir() {
-  return "play.excelmec.org/";
+  return '35.229.61.245/';
 }
