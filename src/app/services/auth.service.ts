@@ -38,8 +38,6 @@ export class AuthService {
         .map(res => res.json())
         .subscribe(res => {
           loader.removeLoader();
-          console.log(res);
-          console.log(this.cookieService.get('csrftoken'));
           // window.location.reload(true);
         });
     }

@@ -60,12 +60,12 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'callback', component: CallbackComponent },
-  // { path: 'games', children: [
-  //   { path: 'kryptos', component: KryptosComponent, children: [
-  //     { path: '', component: KryptosPlayComponent },
-  //     { path: 'ranklist', component: KryptosRanklistComponent },
-  //     { path: 'rules', component: KryptosRulesComponent }
-  //   ] },
+  { path: 'games', children: [
+    { path: 'kryptos', component: KryptosComponent, children: [
+      { path: '', component: KryptosPlayComponent },
+      { path: 'ranklist', component: KryptosRanklistComponent },
+      { path: 'rules', component: KryptosRulesComponent }
+    ] },
   //   { path: 'hashinclude', component: HashincludeComponent, children: [
   //     { path: '', component: HashincludePlayComponent },
   //     { path: 'ranklist', component: HashincludeRanklistComponent },
@@ -94,7 +94,7 @@ const appRoutes: Routes = [
   //     { path: 'rules', component: ConvolutionRulesComponent},
   //     { path: 'submit' , component: ConvolutionSubmitComponent},
   //   ] }
-  // ] },
+  ] },
   { path: 'about', component: AboutComponent }
 ];
 
