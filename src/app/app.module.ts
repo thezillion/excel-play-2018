@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,6 +23,7 @@ import { AboutComponent } from './components/about/about.component';
 import { KryptosService } from './services/kryptos.service';
 import { AuthService } from './services/auth.service';
 import { CommonService } from './services/common.service';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutes } from './app-routing.module';
 
@@ -53,6 +54,7 @@ import { AppRoutes } from './app-routing.module';
     KryptosService,
     AuthService,
     CommonService,
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })

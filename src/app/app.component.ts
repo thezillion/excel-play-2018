@@ -125,7 +125,8 @@ export class AppComponent {
   loadUserCount() {
     this.auth.pullUserCount()
       .subscribe((res) => {
-        this.userCount = res.count;
+        if (res.hasOwnProperty("count"))
+          this.userCount = res["count"];
       });
     // myws.onMessage(
     //     (msg: MessageEvent) => {

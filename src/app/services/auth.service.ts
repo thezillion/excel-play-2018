@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
-// import { CookieService } from 'angular2-cookie/';
+import { CookieService } from 'ngx-cookie-service';
 
 import { ApiRoot } from '../classes/api-root';
 
@@ -27,21 +27,20 @@ export class AuthService {
 
   constructor(
     public router: Router,
-    private http: Http,
-    // private cookieService: CookieService
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
-    // const csrftoken = this.cookieService.get('csrftoken');
-    const csrftoken = true;
+    const csrftoken = this.cookieService.get('csrftoken');
     if (!csrftoken) {
       const loader = new ProgressiveLoader();
       loader.placeLoader('Auth_const');
-      this.http.get(ApiRoot() + '/auth/token', { withCredentials: true })
-        .pipe(
-          map(res => res),
-          tap(res => {
+      this.http.get(ApiRoot() + '/auth/token', { withCredentials: true, observe: 'response' })
+        .subscribe(
+          res => {
+            console.log(res);
             loader.removeLoader();
-            // window.location.reload(true);
-          })
+            window.location.reload(true);
+          }
         );
     }
   }
@@ -53,7 +52,6 @@ export class AuthService {
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        console.log(authResult);
         window.location.hash = '';
         // this.http.get(ApiRoot()+'/testCache')
         //   .subscribe(res => {
@@ -99,7 +97,6 @@ export class AuthService {
     loader.placeLoader('Auth_lgt');
     return this.http.get(ApiRoot() + '/signout/', { withCredentials: true })
       .pipe(
-        map(res => res),
         tap(res => {
           loader.removeLoader();
           this.router.navigate(['/signin']);
@@ -123,7 +120,7 @@ export class AuthService {
     return this.http.get(ApiRoot() + '/getUserCount', { withCredentials: true })
       .pipe(map(res => {
         loader.removeLoader();
-        return res.json();
+        return res;
       }));
   }
 
