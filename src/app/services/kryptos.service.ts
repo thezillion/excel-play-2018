@@ -28,7 +28,7 @@ export class KryptosService extends Service {
   }
 
   pullRanklist() {
-    return this.makeGETAPICall('/kryptos/leaderboard');
+    return this.makeGETAPICall('/kryptos/api/ranklist');
   }
 
   submitAnswer(answer) {
@@ -40,7 +40,7 @@ export class KryptosService extends Service {
   }
 
   pullMyRank() {
-    return this.makeGETAPICall('/kryptos/api/rank/');
+    return this.makeGETAPICall('/kryptos/api/rank');
   }
 
 }
