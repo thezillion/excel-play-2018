@@ -2,8 +2,7 @@
 
   <div>
 
-    <div class="row">
-      <div class="col-lg-2"></div>
+    <div class="row justify-content-around">
       <div class="col-lg-4">
         <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'kryptos']">
           <img src="assets/images/dock/kry-grey.png" alt="">
@@ -13,7 +12,6 @@
           <span class="rank-value" *ngIf="myrank">{{ myrank.krytosrank }}</span>
         </a>
       </div>
-      <div class="col-lg-1"></div>
       <div class="col-lg-4">
         <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'hashinclude']">
           <img src="assets/images/dock/hash2-grey.png" alt="">
@@ -23,11 +21,9 @@
           <span class="rank-value" *ngIf="myrank">{{ myrank.hirank }}</span>
         </a>
       </div>
-      <div class="col-lg-1"></div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-2"></div>
+    <div class="row justify-content-around">
       <div class="col-lg-4">
         <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'dalalbull']">
           <img src="assets/images/dock/bull5-grey.png" alt="">
@@ -37,7 +33,6 @@
           <span class="rank-value" *ngIf="myrank">{{ myrank.dbrank }}</span>
         </a>
       </div>
-      <div class="col-lg-1"></div>
       <div class="col-lg-4">
         <a href="#" (click)="deactivateHomeState()" [@homeState]="homeState" [routerLink]="['/games', 'echo']">
           <img src="assets/images/dock/ech2-grey.png" alt="">
@@ -47,7 +42,6 @@
           <span class="rank-value" *ngIf="myrank">{{ myrank.echorank }}</span>
         </a>
       </div>
-      <div class="col-lg-1"></div>
     </div>
 
     <!--<div class="row">-->

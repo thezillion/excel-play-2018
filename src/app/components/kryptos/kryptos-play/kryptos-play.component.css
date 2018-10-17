@@ -1,1 +1,27 @@
-.kryptos-submit *{border-radius:0;border:none}.kryptos-submit input[type=text]{background-color:#0f1112}.kryptos-submit button{background-color:#b02d25;color:#fff}.bas-width{max-height:350px;max-width:500px;width:auto}@media (max-width:700px){.bas-width{width:100%;max-height:auto;max-width:auto}}
+.kryptos-submit * {
+  border-radius: 0;
+  border: none
+}
+
+.kryptos-submit input[type=text] {
+  background-color: #0f1112
+}
+
+.kryptos-submit button {
+  background-color: #b02d25;
+  color: #fff
+}
+
+.bas-width {
+  max-height: 350px;
+  max-width: 500px;
+  width: auto
+}
+
+@media (max-width:700px) {
+  .bas-width {
+    width: 100%;
+    max-height: auto;
+    max-width: auto
+  }
+}
