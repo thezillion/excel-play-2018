@@ -18,7 +18,6 @@ import { KryptosRulesComponent } from './components/kryptos/kryptos-rules/krypto
 
 import { SigninComponent } from './components/signin/signin.component';
 import { CallbackComponent } from './components/callback/callback.component';
-import { AboutComponent } from './components/about/about.component';
 
 import { KryptosService } from './services/kryptos.service';
 import { AuthService } from './services/auth.service';
@@ -36,7 +35,6 @@ import { AppRoutes } from './app-routing.module';
     KryptosPlayComponent,
     KryptosRanklistComponent,
     KryptosRulesComponent,
-    AboutComponent,
     SigninComponent,
     CallbackComponent,
   ],

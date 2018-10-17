@@ -8,8 +8,6 @@ import { KryptosRulesComponent } from './components/kryptos/kryptos-rules/krypto
 
 import { SigninComponent } from './components/signin/signin.component';
 import { CallbackComponent } from './components/callback/callback.component';
-import { AboutComponent } from './components/about/about.component';
-
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -50,5 +48,4 @@ export const AppRoutes: Routes = [
     //     { path: 'submit' , component: ConvolutionSubmitComponent},
     //   ] }
     ] },
-    { path: 'about', component: AboutComponent }
     ];
