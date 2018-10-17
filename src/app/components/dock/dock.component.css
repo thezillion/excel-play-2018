@@ -1,1 +1,178 @@
-.dock{display:inline-block}@media (max-width:700px){.dock{display:none}}.dock .dock-inner{text-align:center}.dock .dock-inner a,.dock .dock-inner a:focus{margin:0 1em 3em 0;display:block;text-decoration:none;width:90px}@media (max-width:1181px){.dock .dock-inner a,.dock .dock-inner a:focus{-margin-bottom:1.4em!important;margin-right:0!important}}.dock .dock-inner a:focus:hover,.dock .dock-inner a:hover{color:#f34f36}.dock .dock-inner a i,.dock .dock-inner a:focus i{display:block;font-size:34px}.dock .dock-inner a span,.dock .dock-inner a:focus span{text-transform:uppercase;font-weight:700;display:block;margin-bottom:10px}.dock .dock-inner a:focus:last-child,.dock .dock-inner a:last-child{margin-bottom:0}.dock .dock-inner img{height:50px}@media (max-width:1181px){.dock .dock-inner img{height:30px!important}}@media (min-width:700px){.dock-fab{display:none}}@media (max-width:700px){.dock-fab{bottom:0;position:fixed;margin:1em;right:0}}.dock-fab .buttons{-webkit-box-shadow:0 5px 11px -2px rgba(0,0,0,.18),0 4px 12px -7px rgba(0,0,0,.15);box-shadow:0 5px 11px -2px rgba(0,0,0,.18),0 4px 12px -7px rgba(0,0,0,.15);border-radius:50%;display:block;width:56px;height:56px;margin:20px auto 0;position:relative;-webkit-transition:all .1s ease-out;transition:all .1s ease-out;text-align:center}.dock-fab .buttons img{max-width:100%;max-height:100%}.dock-fab .buttons:active,.dock-fab .buttons:focus,.dock-fab .buttons:hover{-webkit-box-shadow:0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);box-shadow:0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28)}.dock-fab .buttons:not(:last-child){width:40px;height:40px;margin:20px auto 0;opacity:0;-webkit-transform:translateY(50px);transform:translateY(50px)}.dock-fab .buttons.main{background:#151515}.dock-fab .buttons.main i{font-size:2em;position:relative;top:14px}.dock-fab .buttons:nth-last-child(1){-webkit-transition-delay:25ms;transition-delay:25ms;background-size:contain}.dock-fab .buttons:not(:last-child):nth-last-child(2){-webkit-transition-delay:50ms;transition-delay:20ms;background-size:contain}.dock-fab .buttons:not(:last-child):nth-last-child(3){-webkit-transition-delay:75ms;transition-delay:40ms;background-size:contain}.dock-fab .buttons:not(:last-child):nth-last-child(4){-webkit-transition-delay:.1s;transition-delay:60ms;background-size:contain}.dock-fab [tooltip]:before{bottom:25%;font-family:arial;font-weight:600;border-radius:2px;background:#585858;color:#fff;content:attr(tooltip);font-size:12px;visibility:hidden;opacity:0;padding:5px 7px;margin-right:12px;position:absolute;right:100%;white-space:nowrap}.dock-fab [tooltip]:hover:after,.dock-fab [tooltip]:hover:before{visibility:visible;opacity:1}.dock-fab:hover .buttons:not(:last-child){opacity:1;-webkit-transform:none;transform:none;margin:15px auto 0}
+.dock {
+  display: inline-block
+}
+
+@media (max-width:700px) {
+  .dock {
+    display: none
+  }
+}
+
+.dock .dock-inner {
+  text-align: center
+}
+
+.dock .dock-inner a,
+.dock .dock-inner a:focus {
+  margin: 0 1em 3em 0;
+  display: block;
+  text-decoration: none;
+  width: 90px
+}
+
+@media (max-width:1181px) {
+  .dock .dock-inner a,
+  .dock .dock-inner a:focus {
+    -margin-bottom: 1.4em!important;
+    margin-right: 0!important
+  }
+}
+
+.dock .dock-inner a:focus:hover,
+.dock .dock-inner a:hover {
+  color: #f34f36
+}
+
+.dock .dock-inner a i,
+.dock .dock-inner a:focus i {
+  display: block;
+  font-size: 34px
+}
+
+.dock .dock-inner a span,
+.dock .dock-inner a:focus span {
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px
+}
+
+.dock .dock-inner a:focus:last-child,
+.dock .dock-inner a:last-child {
+  margin-bottom: 0
+}
+
+.dock .dock-inner img {
+  height: 50px
+}
+
+@media (max-width:1181px) {
+  .dock .dock-inner img {
+    height: 30px!important
+  }
+}
+
+@media (min-width:700px) {
+  .dock-fab {
+    display: none
+  }
+}
+
+@media (max-width:700px) {
+  .dock-fab {
+    bottom: 0;
+    position: fixed;
+    margin: 1em;
+    right: 0
+  }
+}
+
+.dock-fab .buttons {
+  -webkit-box-shadow: 0 5px 11px -2px rgba(0, 0, 0, .18), 0 4px 12px -7px rgba(0, 0, 0, .15);
+  box-shadow: 0 5px 11px -2px rgba(0, 0, 0, .18), 0 4px 12px -7px rgba(0, 0, 0, .15);
+  border-radius: 50%;
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 20px auto 0;
+  position: relative;
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+  text-align: center
+}
+
+.dock-fab .buttons img {
+  max-width: 100%;
+  max-height: 100%
+}
+
+.dock-fab .buttons:active,
+.dock-fab .buttons:focus,
+.dock-fab .buttons:hover {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+  box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28)
+}
+
+.dock-fab .buttons:not(:last-child) {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto 0;
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px)
+}
+
+.dock-fab .buttons.main {
+  background: #151515
+}
+
+.dock-fab .buttons.main i {
+  font-size: 2em;
+  position: relative;
+  top: 14px
+}
+
+.dock-fab .buttons:nth-last-child(1) {
+  -webkit-transition-delay: 25ms;
+  transition-delay: 25ms;
+  background-size: contain
+}
+
+.dock-fab .buttons:not(:last-child):nth-last-child(2) {
+  -webkit-transition-delay: 50ms;
+  transition-delay: 20ms;
+  background-size: contain
+}
+
+.dock-fab .buttons:not(:last-child):nth-last-child(3) {
+  -webkit-transition-delay: 75ms;
+  transition-delay: 40ms;
+  background-size: contain
+}
+
+.dock-fab .buttons:not(:last-child):nth-last-child(4) {
+  -webkit-transition-delay: .1s;
+  transition-delay: 60ms;
+  background-size: contain
+}
+
+.dock-fab [tooltip]:before {
+  bottom: 25%;
+  font-family: arial;
+  font-weight: 600;
+  border-radius: 2px;
+  background: #585858;
+  color: #fff;
+  content: attr(tooltip);
+  font-size: 12px;
+  visibility: hidden;
+  opacity: 0;
+  padding: 5px 7px;
+  margin-right: 12px;
+  position: absolute;
+  right: 100%;
+  white-space: nowrap
+}
+
+.dock-fab [tooltip]:hover:after,
+.dock-fab [tooltip]:hover:before {
+  visibility: visible;
+  opacity: 1
+}
+
+.dock-fab:hover .buttons:not(:last-child) {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  margin: 15px auto 0
+}
