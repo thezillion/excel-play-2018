@@ -12,6 +12,28 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,700" rel="stylesheet">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root id="greg" style="display: none"></app-root>
+  <canvas id='world' style="z-index: 100; position: fixed; width: 100%; height: 100%;"></canvas>
+
+  <script type="text/javascript">
+    var SCREEN_WIDTH=window.innerWidth;var SCREEN_HEIGHT=window.innerHeight;var RADIUS=120;var RADIUS_SCALE=1.5;var RADIUS_SCALE_MIN=1;var RADIUS_SCALE_MAX=1.5;var QUANTITY=60;var canvas;var context;var particles;var colors=['#166a77','#1b9c89']
+    var mouseX=SCREEN_WIDTH*0.5;var mouseY=SCREEN_HEIGHT*0.5;var mouseIsDown=!1;var pappu;var appRoot=document.getElementById("greg");function init(){canvas=document.getElementById('world');if(canvas&&canvas.getContext){context=canvas.getContext('2d');window.addEventListener('click',documentClickHandler,!1);window.addEventListener('mousemove',documentMouseMoveHandler,!1);window.addEventListener('mousedown',documentMouseDownHandler,!1);window.addEventListener('mouseup',documentMouseUpHandler,!1);document.addEventListener('touchstart',documentTouchStartHandler,!1);document.addEventListener('touchmove',documentTouchMoveHandler,!1);window.addEventListener('resize',windowResizeHandler,!1);createParticles();windowResizeHandler();pappu=setInterval(loop,1000/60)}}
+    function createParticles(){particles=[];for(var i=0;i<QUANTITY;i++){var particle={size:1,position:{x:mouseX,y:mouseY},offset:{x:0,y:0},shift:{x:mouseX,y:mouseY},speed:0.01+Math.random()*0.04,targetSize:1,fillColor:colors[i%2],orbit:RADIUS*.5+(RADIUS*.5*Math.random())};particles.push(particle)}}
+    function documentClickHandler(event){if(document.getElementById("world")){setTimeout(function(){clearInterval(pappu);if(document.getElementById('world')){document.body.removeChild(canvas)};appRoot.style=""},500)}}
+    function documentMouseMoveHandler(event){mouseX=event.clientX-(window.innerWidth-SCREEN_WIDTH)*.5;mouseY=event.clientY-(window.innerHeight-SCREEN_HEIGHT)*.5}
+    function documentMouseDownHandler(event){mouseIsDown=!0}
+    function documentMouseUpHandler(event){mouseIsDown=!1}
+    function documentTouchStartHandler(event){if(event.touches.length==1){event.preventDefault();mouseX=event.touches[0].pageX-(window.innerWidth-SCREEN_WIDTH)*.5;mouseY=event.touches[0].pageY-(window.innerHeight-SCREEN_HEIGHT)*.5}}
+    function documentTouchMoveHandler(event){if(event.touches.length==1){event.preventDefault();mouseX=event.touches[0].pageX-(window.innerWidth-SCREEN_WIDTH)*.5;mouseY=event.touches[0].pageY-(window.innerHeight-SCREEN_HEIGHT)*.5}}
+    function windowResizeHandler(){SCREEN_WIDTH=window.innerWidth;SCREEN_HEIGHT=window.innerHeight;canvas.width=SCREEN_WIDTH;canvas.height=SCREEN_HEIGHT}
+    function loop(){if(mouseIsDown){RADIUS_SCALE+=(RADIUS_SCALE_MAX-RADIUS_SCALE)*(0.02)}
+    else{RADIUS_SCALE-=(RADIUS_SCALE-RADIUS_SCALE_MIN)*(0.02)}
+      RADIUS_SCALE=Math.min(RADIUS_SCALE,RADIUS_SCALE_MAX);context.fillStyle='rgba(0,0,0,0.05)';context.fillRect(0,0,context.canvas.width,context.canvas.height);for(i=0,len=particles.length;i<len;i++){var particle=particles[i];var lp={x:particle.position.x,y:particle.position.y};particle.offset.x+=particle.speed;particle.offset.y+=particle.speed;particle.shift.x+=(mouseX-particle.shift.x)*(particle.speed);particle.shift.y+=(mouseY-particle.shift.y)*(particle.speed);particle.position.x=particle.shift.x+Math.cos(i+particle.offset.x)*(particle.orbit*RADIUS_SCALE);particle.position.y=particle.shift.y+Math.sin(i+particle.offset.y)*(particle.orbit*RADIUS_SCALE);particle.position.x=Math.max(Math.min(particle.position.x,SCREEN_WIDTH),0);particle.position.y=Math.max(Math.min(particle.position.y,SCREEN_HEIGHT),0);particle.size+=(particle.targetSize-particle.size)*0.05;if(Math.round(particle.size)==Math.round(particle.targetSize)){particle.targetSize=1+Math.random()*7}
+        context.beginPath();context.fillStyle=particle.fillColor;context.strokeStyle=particle.fillColor;context.lineWidth=particle.size;context.moveTo(lp.x,lp.y);context.lineTo(particle.position.x,particle.position.y);context.stroke();context.arc(particle.position.x,particle.position.y,particle.size/2,0,Math.PI*2,!0);context.fill()}
+      if(appRoot.innerHTML!==""){documentClickHandler(null)}}window.onload=init;
+  
+    // window.onload = init();
+  </script>
+
 </body>
 </html>
