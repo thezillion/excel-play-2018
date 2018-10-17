@@ -2,7 +2,7 @@
   <div class="game-status content">
     <div class="float-right status-data">
       <span class="red">LEVEL</span>
-      <span class="white">{{level.level}}</span>
+      <span class="white">{{ level.level }}</span>
       <span class="red">RANK</span>
       <span class="white" *ngIf="myrank">{{ myrank.rank }}</span>
     </div>
@@ -16,8 +16,9 @@
           <source src="{{apiRoot}}/kryptos{{ level.image }}" type="audio/wav">
           <source src="{{apiRoot}}/kryptos{{ level.image }}" type="audio/mp3">
           Your browser does not support the audio element.
-          <a href="{{apiRoot}}/kryptos{{ level.image }}">Download Audio here</a>
+          
         </audio>
+        <a href="{{apiRoot}}/kryptos{{ level.image }}">Download Audio here</a>
         <br/>
         <br/>
         <br/>

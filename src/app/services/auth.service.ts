@@ -34,7 +34,7 @@ export class AuthService {
     if (!csrftoken) {
       const loader = new ProgressiveLoader();
       loader.placeLoader('Auth_const');
-      this.http.get(ApiRoot() + '/auth/token', { withCredentials: true, observe: 'response' })
+      this.http.get(ApiRoot() + '/auth/v1/token', { withCredentials: true, observe: 'response' })
         .subscribe(
           res => {
             console.log(res);
@@ -79,7 +79,7 @@ export class AuthService {
     body.append('csrfmiddlewaretoken', csrftoken);
     const loader = new ProgressiveLoader();
     loader.placeLoader('Auth_ss');
-    return this.http.post(ApiRoot() + '/auth/signin', body, { withCredentials: true })
+    return this.http.post(ApiRoot() + '/auth/v1/signin', body, { withCredentials: true })
       .pipe(map(res => {
         loader.removeLoader();
         // console.log(res.json());
@@ -95,7 +95,7 @@ export class AuthService {
     localStorage.removeItem('expires_at');
     const loader = new ProgressiveLoader();
     loader.placeLoader('Auth_lgt');
-    return this.http.get(ApiRoot() + '/signout/', { withCredentials: true })
+    return this.http.get(ApiRoot() + '/auth/v1/signout/', { withCredentials: true })
       .pipe(
         tap(res => {
           loader.removeLoader();
@@ -117,7 +117,7 @@ export class AuthService {
   public pullUserCount() {
     const loader = new ProgressiveLoader();
     loader.placeLoader('Auth_puc');
-    return this.http.get(ApiRoot() + '/getUserCount', { withCredentials: true })
+    return this.http.get(ApiRoot() + '/auth/v1/getUserCount', { withCredentials: true })
       .pipe(map(res => {
         loader.removeLoader();
         return res;
