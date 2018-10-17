@@ -17,8 +17,8 @@ export class KryptosPlayComponent implements OnInit {
   level: any;
   myrank;
   answer: string;
-  showError: boolean = false;
-  showSuccess: boolean = false;
+  showError = false;
+  showSuccess = false;
 
   constructor(
     private router: Router,
@@ -56,14 +56,15 @@ export class KryptosPlayComponent implements OnInit {
     if (this.answer) {
       this.kryptosService.submitAnswer(this.answer.toLowerCase())
         .subscribe(res => {
-          if (res.hasOwnProperty("valid")) {
-            this.answer = "";
+          if (res.hasOwnProperty('valid')) {
+            this.answer = '';
             this.showSuccess = true;
             setTimeout(() => {
               this.ngOnInit();
             }, 500);
-          } else
+          } else {
             this.showError = true;
+          }
         });
     }
   }

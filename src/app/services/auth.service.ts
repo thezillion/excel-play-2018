@@ -39,7 +39,7 @@ export class AuthService {
           res => {
             console.log(res);
             loader.removeLoader();
-            window.location.reload(true);
+            // window.location.reload(true);
           }
         );
     }
