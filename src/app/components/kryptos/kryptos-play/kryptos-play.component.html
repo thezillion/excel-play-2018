@@ -11,14 +11,8 @@
   <div class="game-content content">
     <div style="text-align: center;" *ngIf="!(level.level == 31 || level.level == 100)">
       <div class="col-lg-6 col-lg-offset-3">
-        <img src="{{apiRoot}}/kryptos{{ level.image }}" alt="" width="100%" *ngIf="level.type=='I' || level.type=='G'" class="bas-width">
-        <audio controls *ngIf="level.type=='A'">
-          <source src="{{apiRoot}}/kryptos{{ level.image }}" type="audio/wav">
-          <source src="{{apiRoot}}/kryptos{{ level.image }}" type="audio/mp3">
-          Your browser does not support the audio element.
-          
-        </audio>
-        <a href="{{apiRoot}}/kryptos{{ level.image }}">Download Audio here</a>
+        <img src="{{apiRoot}}/kryptos{{ level.image }}" alt="" width="100%" *ngIf="level.filetype=='I'" class="bas-width">
+        <a href="{{apiRoot}}/kryptos{{ level.image }}" *ngIf="level.filetype=='NI'">Download file here</a>
         <br/>
         <br/>
         <br/>

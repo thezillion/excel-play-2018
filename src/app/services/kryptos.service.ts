@@ -40,7 +40,7 @@ export class KryptosService extends Service {
   }
 
   pullMyRank() {
-    return this.makeGETAPICall('/kryptos/api/myrank/');
+    return this.makeGETAPICall('/kryptos/api/rank/');
   }
 
 }
