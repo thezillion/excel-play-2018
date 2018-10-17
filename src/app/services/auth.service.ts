@@ -73,10 +73,10 @@ export class AuthService {
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
     const body = new FormData();
-    // const csrftoken = this.cookieService.get('csrftoken');
+    const csrftoken = this.cookieService.get('csrftoken');
     // if (csrftoken) {
     body.append('access_token', authResult.accessToken);
-    // body.append('csrfmiddlewaretoken', csrftoken);
+    body.append('csrfmiddlewaretoken', csrftoken);
     const loader = new ProgressiveLoader();
     loader.placeLoader('Auth_ss');
     return this.http.post(ApiRoot() + '/auth/signin', body, { withCredentials: true })

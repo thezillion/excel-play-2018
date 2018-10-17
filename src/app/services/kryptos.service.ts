@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-// import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from 'ngx-cookie-service';
 
 import { AuthService } from './auth.service';
 
@@ -17,10 +17,10 @@ export class KryptosService extends Service {
   constructor(
     protected router: Router,
     protected http: HttpClient,
-    // protected cookieService: CookieService,
+    protected cookieService: CookieService,
     protected auth: AuthService
   ) {
-    super(router, http, auth);
+    super(router, http, cookieService, auth);
   }
 
   pullUserLevel() {
@@ -34,7 +34,7 @@ export class KryptosService extends Service {
   submitAnswer(answer) {
     let body = new FormData();
     body.append('answer', answer);
-    // body.append('csrfmiddlewaretoken', this.cookieService.get('csrftoken'));
+    body.append('csrfmiddlewaretoken', this.cookieService.get('csrftoken'));
 
     return this.makePOSTAPICall('/kryptos/submitanswer', body);
   }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Router } from '@angular/router';
 
-// import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from 'ngx-cookie-service';
 
 import { ApiRoot } from '../classes/api-root';
 
@@ -17,7 +17,7 @@ export class Service {
   constructor(
     protected router: Router,
     protected http: HttpClient,
-    // protected cookieService: CookieService,
+    protected cookieService: CookieService,
     protected auth: AuthService
   ) { }
 

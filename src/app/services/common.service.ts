@@ -4,7 +4,7 @@ import { Service } from '../classes/service';
 
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from 'ngx-cookie-service';
 import { ApiRoot } from '../classes/api-root';
 import { AuthService } from './auth.service';
 
@@ -14,10 +14,10 @@ export class CommonService extends Service {
   constructor(
     protected router: Router,
     protected http: HttpClient,
-    // protected cookieService: CookieService,
+    protected cookieService: CookieService,
     protected auth: AuthService
   ) {
-    super(router, http, auth);
+    super(router, http, cookieService, auth);
   }
 
   pullMyRanks() {
