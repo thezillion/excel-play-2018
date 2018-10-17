@@ -59,7 +59,7 @@ export class KryptosPlayComponent implements OnInit {
     if (this.answer) {
       this.kryptosService.submitAnswer(this.answer.toLowerCase())
         .subscribe(res => {
-          if (res.hasOwnProperty('valid')) {
+          if (res.hasOwnProperty('answer') && res['answer'] == 'Correct') {
             this.answer = '';
             this.showSuccess = true;
             setTimeout(() => {
