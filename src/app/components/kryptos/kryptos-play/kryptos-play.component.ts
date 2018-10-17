@@ -7,6 +7,8 @@ import { KryptosService } from 'src/app/services/kryptos.service';
 
 import { AuthService } from 'src/app/services/auth.service';
 
+import { ApiRoot } from 'src/app/classes/api-root';
+
 @Component({
   selector: 'app-kryptos-play',
   templateUrl: './kryptos-play.component.html',
@@ -17,8 +19,9 @@ export class KryptosPlayComponent implements OnInit {
   level: any;
   myrank;
   answer: string;
-  showError = false;
-  showSuccess = false;
+  showError: boolean = false;
+  showSuccess: boolean = false;
+  apiRoot = ApiRoot();
 
   constructor(
     private router: Router,

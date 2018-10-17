@@ -24,11 +24,11 @@ export class KryptosService extends Service {
   }
 
   pullUserLevel() {
-    return this.makeGETAPICall('/kryptos/');
+    return this.makeGETAPICall('/kryptos/api/ask');
   }
 
   pullRanklist() {
-    return this.makeGETAPICall('/kryptos/ranklist');
+    return this.makeGETAPICall('/kryptos/leaderboard');
   }
 
   submitAnswer(answer) {
@@ -36,11 +36,11 @@ export class KryptosService extends Service {
     body.append('answer', answer);
     body.append('csrfmiddlewaretoken', this.cookieService.get('csrftoken'));
 
-    return this.makePOSTAPICall('/kryptos/submitanswer', body);
+    return this.makePOSTAPICall('/kryptos/api/answer', body);
   }
 
   pullMyRank() {
-    return this.makeGETAPICall('/kryptos/myrank/');
+    return this.makeGETAPICall('/kryptos/api/myrank/');
   }
 
 }

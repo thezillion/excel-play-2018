@@ -11,12 +11,12 @@
   <div class="game-content content">
     <div style="text-align: center;" *ngIf="!(level.level == 31 || level.level == 100)">
       <div class="col-lg-6 col-lg-offset-3">
-        <img src="http://play.excelmec.org/static/{{ level.image }}" alt="" width="100%" *ngIf="level.type=='I' || level.type=='G'" class="bas-width">
+        <img src="{{apiRoot}}/kryptos/media/level_images/{{ level.image }}" alt="" width="100%" *ngIf="level.type=='I' || level.type=='G'" class="bas-width">
         <audio controls *ngIf="level.type=='A'">
-          <source src="http://play.excelmec.org/static/{{ level.image }}" type="audio/wav">
-          <source src="http://play.excelmec.org/static/{{ level.image }}" type="audio/mp3">
+          <source src="{{apiRoot}}/kryptos/media/level_images/{{ level.image }}" type="audio/wav">
+          <source src="{{apiRoot}}/kryptos/media/level_images/{{ level.image }}" type="audio/mp3">
           Your browser does not support the audio element.
-          <a href="http://play.excelmec.org/static/{{ level.image }}">Download Audio here</a>
+          <a href="{{apiRoot}}/kryptos/media/level_images/{{ level.image }}">Download Audio here</a>
         </audio>
         <br/>
         <br/>
